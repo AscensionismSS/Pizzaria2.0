@@ -15,7 +15,7 @@ namespace Pizzaria2._0.Controllers.ApiControllers
         }
 
         [HttpPost("BuscarEndereco")] // Define a rota para a busca de endereço
-        public async Task<IActionResult> BuscarEndereco([FromBody] string cep)
+        public async Task<IActionResult> FindAddress([FromBody] string cep)
         {
             var address = await _viaCepService.GetAdressByCep(cep);
 

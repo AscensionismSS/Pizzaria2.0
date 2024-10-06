@@ -72,5 +72,17 @@ namespace Pizzaria2._0.Data.Repository
             _dataBaseContext.SaveChanges();
         }
 
+        public Account LoginValidation(string email, string senha)
+        {
+            var account = _dataBaseContext.Accounts.FirstOrDefault(x => x.Email == email);
+
+            if (account != null && account.Senha == senha) // Considere usar verificação de hash
+            {
+                return account;
+            }
+
+            return null;
+        }
+
     }
 }
